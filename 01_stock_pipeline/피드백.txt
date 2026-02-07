@@ -1,0 +1,39 @@
+=== 주식 파이프라인 프로젝트 피드백 ===
+
+1. 전체 흐름 재미도 (1-10점):
+   점수: __/10
+   이유:
+
+2. 오류 고칠 때 느낌:
+   선택: [ ] 짜증남  [ ] 재미있음  [ ] 그냥그럼
+   이유:
+
+3. 계속 돌리고 싶은 느낌:
+   선택: [ ] Yes  [ ] No  [ ] 조금
+   이유:
+
+4. 가장 재미있었던 부분: 자동으로 수집되는부분이랑 그중 오류가 나면 대응하고 고치는게 짜증나고 어려울꺼 알지만 하면 뿌듯할거같음. 
+
+5. 가장 어려웠던 부분: 아직 그냥 흐름만 읽어본거라 모름.
+
+6. DE 적성 있다고 생각하나?
+   선택: [ ] Yes  [ ] No  [ ] 모르겠음
+   이유:
+
+7. 다음에 해보고 싶은 것:
+   [ ] Airflow (배치 파이프라인)
+   [ ] Kafka (실시간 스트리밍)
+   [ ] dbt (데이터 모델링)
+   [ ] 다른 거 (           )
+
+Docker 기초:
+  https://docs.docker.com/get-started/
+
+SQL 쿼리:
+  https://www.postgresqltutorial.com/
+
+yfinance 문서:
+  https://github.com/ranaroussi/yfinance
+
+Streamlit 튜토리얼:
+  https://docs.streamlit.io/
