@@ -1,68 +1,24 @@
-# 🚀 DE 파이프라인 통합 프로젝트
+# 📈 Kafka 실시간 주식 데이터 파이프라인
 
-## 프로젝트 개요
-3개 프로젝트를 통합한 완전한 데이터 엔지니어링 파이프라인
+## 🎯 프로젝트 개요
+Airflow를 이용한 **배치(Batch)** 처리를 넘어, Kafka를 이용한 **실시간(Streaming)** 데이터 엔지니어링 환경을 구축했습니다.
 
-## 아키텍처
+## 🏗️ 시스템 아키텍처
 
-### 1. 배치 Layer (Python + Postgres)
-- 주기적 데이터 수집
-- 히스토리 관리
+1. **Producer**: 네이버/야후 금융 API를 통해 실시간 주가 수집 및 전송
+2. **Kafka (Broker)**: 고속 데이터 스트리밍 및 메시지 관리
+3. **Consumer**: 
+   - Raw 데이터 실시간 DB 저장
+   - 1분 단위 윈도우 집계(Average, Max, Min) 후 저장
+4. **PostgreSQL**: 실시간 및 집계 데이터 영구 보존
 
-### 2. 자동화 Layer (Airflow)
-- 스케줄링
-- 실패 처리
-- 모니터링
+## 🛠️ 핵심 기술 스택
+- **Message Broker**: Apache Kafka (Confluent 7.5.0)
+- **Orchestration**: Docker Compose
+- **Language**: Python (kafka-python, pandas)
+- **Monitoring**: Kafka-UI (Port 8090)
 
-### 3. 실시간 Layer (Kafka)
-- 실시간 스트리밍
-- 1분 윈도우 집계
-- 즉시 저장
-
-## 기술 스택
-- Python 3.10+
-- PostgreSQL 15
-- Apache Kafka 7.5
-- Apache Airflow 2.8
-- Docker
-
-## 실행 방법
-
-### 1. Kafka 시작
-```bash
-cd kafka-project
-docker-compose up -d
-```
-
-### 2. Airflow 시작
-```bash
-cd airflow-project
-docker-compose up -d
-```
-
-### 3. 실시간 스트리밍
-```bash
-# Producer
-python stock_producer.py
-
-# Consumer (DB 저장)
-python stock_consumer_db.py
-```
-
-### 4. 통합 대시보드
-```bash
-python architecture_demo.py
-```
-
-## 학습 내용
-- 배치 vs 실시간 처리
-- Lambda Architecture
-- Kafka Producer/Consumer
-- Airflow DAG 설계
-- 실시간 윈도우 집계
-
-## 다음 단계
-- Week 4: dbt 데이터 모델링
-- Week 5: AWS Cloud 배포
-- Week 7: 데이터 품질 관리
-- Week 8: 포트폴리오 완성
+## 💡 배운 점
+- **Docker Network**: 내부망(29092)과 외부망(9092)을 분리하여 Kafka Listeners 설정 해결
+- **Serialization**: 파이썬 딕셔너리를 바이트로 변환하는 직렬화/역직렬화 과정 이해
+- **Lambda Architecture**: 실시간 데이터와 배치 데이터의 차이점을 이해하고 통합 대시보드 구현
