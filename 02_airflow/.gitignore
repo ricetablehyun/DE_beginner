@@ -1,6 +1,21 @@
+# --- 기존 내용 (그대로 두세요) ---
 .DS_Store
 logs/
 plugins/
 venv/
 __pycache__/
 *.pyc
+
+# --- ★ 여기부터 추가하세요 (보안 및 DB 방지) ---
+
+# 1. 환경변수/비밀번호 파일 (해킹 방지 1순위)
+.env
+
+# 2. 임시 데이터 폴더 (CSV나 엑셀 파일 등)
+data/
+tmp/
+temp/
+
+# 3. 혹시 모를 DB 데이터 파일 (이거 올라가면 깃허브 용량 터짐)
+postgres_data/
+db_data/
